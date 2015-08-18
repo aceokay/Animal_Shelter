@@ -30,30 +30,20 @@ describe(Customer) do
     end
   end
 
-  #
-  # describe('#save') do
-  #   it('saves a given instance of the Animal class to the database') do
-  #     new_animal = Animal.new({:name => "Rico", :gender => "male", :type => "fish", :breed => "pirahna", :date_of_entry => '2015-08-12 00:00:00', :owner => "", :id => nil})
-  #     new_animal.save()
-  #     expect(Animal.all()).to(eq([new_animal]))
-  #   end
-  # end
-  #
-  # describe('.all') do
-  #   it('returns all saved instances of the Animal class, returns none if nothing is there.') do
-  #     new_animal = Animal.new({:name => "Rico", :gender => "male", :type => "fish", :breed => "pirahna", :date_of_entry => '2015-08-12', :owner => nil, :id => nil})
-  #     expect(Animal.all()).to(eq([]))
-  #   end
-  # end
-  #
-  # describe('.sort_by_entry_date') do
-  #   it("returns all animals sorted by entry date with oldest animals at the top") do
-  #     new_animal = Animal.new({:name => "Rico", :gender => "male", :type => "fish", :breed => "pirahna", :date_of_entry => '2015-08-12', :owner => nil, :id => nil})
-  #     new_animal.save
-  #     new_animal_2 = Animal.new({:name => "Taco", :gender => "male", :type => "fish", :breed => "tacofish", :date_of_entry => '2015-08-04', :owner => nil, :id => nil})
-  #     new_animal_2.save
-  #     expect(Animal.sort_by_entry_date).to(eq([new_animal, new_animal_2]))
-  #   end
-  # end
+
+  describe('#save') do
+    it('saves a given instance of the Customer class to the database') do
+      new_customer = Customer.new({:name => "Rick", :phone => "360-910-7205", :type_pref => "fish", :breed_pref => "pirahna", :id => nil})
+      new_customer.save
+      expect(Customer.all()).to(eq([new_customer]))
+    end
+  end
+
+  describe('.all') do
+    it('returns all saved instances of the Customer class, returns none if nothing is there.') do
+      new_customer = Customer.new({:name => "Rick", :phone => "360-910-7205", :type_pref => "fish", :breed_pref => "pirahna", :id => nil})
+      expect(Customer.all()).to(eq([]))
+    end
+  end
 
 end
