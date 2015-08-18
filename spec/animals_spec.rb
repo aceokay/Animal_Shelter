@@ -58,7 +58,7 @@ describe(Animal) do
       new_animal.save
       new_animal_2 = Animal.new({:name => "Taco", :gender => "male", :type => "fish", :breed => "tacofish", :date_of_entry => '2015-08-04', :owner => nil, :id => nil})
       new_animal_2.save
-      expect(Animal.sort_by_entry_date).to(eq([new_animal_2, new_animal]))
+      expect(Animal.sort_by_entry_date).to(eq([new_animal, new_animal_2]))
     end
   end
 

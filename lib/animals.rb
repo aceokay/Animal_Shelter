@@ -37,7 +37,7 @@ class Animal
   end
 
   define_singleton_method(:sort_by_entry_date) do
-    returned_animals = DB.exec("SELECT * FROM animals ORDER BY date_of_entry ASC;")
+    returned_animals = DB.exec("SELECT * FROM animals ORDER BY date_of_entry DESC;")
     all_animals = []
     returned_animals.each do |animal|
       name = animal.fetch("name")
