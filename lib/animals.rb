@@ -17,7 +17,7 @@ class Animal
   end
 
   define_singleton_method(:all) do
-    returned_animals = DB.exec("SELECT * FROM animals;")
+    returned_animals = DB.exec("SELECT * FROM animals ORDER BY name ASC;")
     all_animals = []
     returned_animals.each do |animal|
       name = animal.fetch("name")
@@ -33,7 +33,23 @@ class Animal
   end
 
   define_method(:==) do |another_animal|
-  self.name() == another_animal.name() && self.id == another_animal.id && self.gender == another_animal.gender && self.breed == another_animal.breed && self.type == another_animal.type
+    self.name() == another_animal.name() && self.id == another_animal.id && self.gender == another_animal.gender && self.breed == another_animal.breed && self.type == another_animal.type
+  end
+
+  define_singleton_method(:sort_by_entry_date) do
+    returned_animals = DB.exec("SELECT * FROM animals ORDER BY date_of_entry ASC;")
+    all_animals = []
+    returned_animals.each do |animal|
+      name = animal.fetch("name")
+      gender = animal.fetch("gender")
+      type = animal.fetch("type")
+      breed = animal.fetch("breed")
+      date_of_entry = animal.fetch("date_of_entry")
+      owner = animal.fetch("owner")
+      id = animal.fetch("id").to_i
+      all_animals << Animal.new({:name => name, :gender => gender, :type => type, :breed => breed, :date_of_entry => date_of_entry, :owner => owner, :id => id})
+    end
+    all_animals
   end
 
 end

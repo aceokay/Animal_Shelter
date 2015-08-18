@@ -52,4 +52,14 @@ describe(Animal) do
     end
   end
 
+  describe('.sort_by_entry_date') do
+    it("returns all animals sorted by entry date with oldest animals at the top") do
+      new_animal = Animal.new({:name => "Rico", :gender => "male", :type => "fish", :breed => "pirahna", :date_of_entry => '2015-08-12', :owner => nil, :id => nil})
+      new_animal.save
+      new_animal_2 = Animal.new({:name => "Taco", :gender => "male", :type => "fish", :breed => "tacofish", :date_of_entry => '2015-08-04', :owner => nil, :id => nil})
+      new_animal_2.save
+      expect(Animal.sort_by_entry_date).to(eq([new_animal_2, new_animal]))
+    end
+  end
+
 end
