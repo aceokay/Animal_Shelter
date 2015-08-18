@@ -62,4 +62,13 @@ describe(Animal) do
     end
   end
 
+  describe('#delete') do
+    it('deletes a given instance of the custom class Customer') do
+      new_animal = Animal.new({:name => "Rico", :gender => "male", :type => "fish", :breed => "pirahna", :date_of_entry => '2015-08-12', :owner => nil, :id => nil})
+      new_animal.save
+      new_animal.delete()
+      expect(Animal.all()).to(eq([]))
+    end
+  end
+
 end

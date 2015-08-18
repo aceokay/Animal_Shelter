@@ -52,4 +52,7 @@ class Animal
     all_animals
   end
 
+  define_method(:delete) do
+    DB.exec("DELETE FROM animals where id = #{self.id()}")
+  end
 end
