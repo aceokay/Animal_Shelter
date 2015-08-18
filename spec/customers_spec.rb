@@ -46,4 +46,13 @@ describe(Customer) do
     end
   end
 
+  describe('#delete') do
+    it('deletes a given instance of the custom class Customer') do
+      new_customer = Customer.new({:name => "Rick", :phone => "360-910-7205", :type_pref => "fish", :breed_pref => "pirahna", :id => nil})
+      new_customer.save
+      new_customer.delete()
+      expect(Customer.all()).to(eq([]))
+    end
+  end
+
 end

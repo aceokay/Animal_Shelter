@@ -32,4 +32,8 @@ class Customer
   define_method(:==) do |another_customer|
     self.name() == another_customer.name() && self.id == another_customer.id
   end
+
+  define_method(:delete) do
+    DB.exec("DELETE FROM customers WHERE id = #{self.id}")
+  end
 end
